@@ -1,0 +1,41 @@
+<%@ page pageEncoding="UTF-8" %>
+
+<!-- Navigation -->
+<nav class="navigation">
+    <a href="${pageContext.request.contextPath}" class="navigation-title navigation-link">
+        ENI-Enchères
+    </a>
+    <ul class="navigation-list">
+        <li class="navigation-item">
+            <a href="${pageContext.request.contextPath}/auction/list" class="navigation-link">
+                Enchères
+            </a>
+        </li>
+        <c:choose>
+            <c:when test="${!sessionScope.isOpen}">
+                <li class="navigation-item">
+                    <a href="${pageContext.request.contextPath}/account/login" class="navigation-link">
+                        Connexion
+                    </a>
+                </li>
+            </c:when>
+            <c:otherwise>
+                <li class="navigation-item">
+                    <a href="${pageContext.request.contextPath}/sale/create" class="navigation-link">
+                        Créer une vente
+                    </a>
+                </li>
+                <li class="navigation-item">
+                    <a href="${pageContext.request.contextPath}/user/profile" class="navigation-link">
+                        Mon profil
+                    </a>
+                </li>
+                <li class="navigation-item">
+                    <a href="${pageContext.request.contextPath}/account/logout" class="navigation-link">
+                        Déconnexion
+                    </a>
+                </li>
+            </c:otherwise>
+        </c:choose>
+    </ul>
+</nav>
